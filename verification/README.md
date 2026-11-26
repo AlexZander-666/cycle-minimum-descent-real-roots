@@ -1,0 +1,3 @@
+# What the receipts establish
+
+The distributed Lean sources match the 499 per-module source SHA-256 values in verified-modules.tsv. The 26 November 2026 clean run began with an empty project build tree. It compiled each local module with warnings as errors and invoked LeanChecker separately. Each row also gives the SHA-256 of the object and its local module log. The 22 requested transitive axiom reports are reproduced in cold-replay-public.log. The transcript contains the checked numerical and axiom facts with machine-specific path listings omitted. These results concern the exact pinned dependency versions given by formal/lake-manifest.json. The decimal intervals used in the exposition were never the input to the finite kernel checks.

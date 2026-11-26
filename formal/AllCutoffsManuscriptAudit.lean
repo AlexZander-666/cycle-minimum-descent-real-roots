@@ -1,0 +1,25 @@
+import LongCycleBounds.DescentAllSizes
+import LongCycleBounds.DescentAllCutoffSizes
+
+#print axioms LongCycleBounds.DescentNecklace.original_eq_descentTransform
+#print axioms LongCycleBounds.DescentNecklace.finite_certificate_through127
+#print axioms LongCycleBounds.DescentNecklace.simple_roots_through127
+#print axioms LongCycleBounds.DescentNecklace.splits_through127
+#print axioms LongCycleBounds.DescentNecklace.LowerPacked.lower_cutoff_mesh_three
+#print axioms LongCycleBounds.DescentNecklace.LowerPacked.lower_cutoff_mesh_through127
+#print axioms LongCycleBounds.DescentMesh.actual_grid_sign
+#print axioms LongCycleBounds.DescentBoundary.unrestricted_grid_sign
+#print axioms LongCycleBounds.DescentDerangement.derangement_grid_sign
+#print axioms LongCycleBounds.DescentDerangement.all_cutoffs_large
+#print axioms LongCycleBounds.DescentNecklace.common_isolating_all_sizes
+#print axioms LongCycleBounds.DescentNecklace.original_roots_all_sizes
+#print axioms LongCycleBounds.DescentNecklace.mixture_splits_all_sizes
+#print axioms LongCycleBounds.DescentNecklace.original_splits_all_sizes
+#print axioms LongCycleBounds.DescentTwoLetters.row_five
+#print axioms LongCycleBounds.DescentTwoLetters.five_mixture_roots
+#print axioms LongCycleBounds.DescentBoundary.all_cutoffs_all_sizes
+#print axioms LongCycleBounds.DescentBoundary.exceptional_support_iff
+#print axioms LongCycleBounds.DescentBoundary.all_cutoffs_manuscript
+#print axioms LongCycleBounds.DescentBoundary.original_descent_splits
+#print axioms LongCycleBounds.DescentBoundary.four_exception
+#print axioms LongCycleBounds.DescentBoundary.five_exception

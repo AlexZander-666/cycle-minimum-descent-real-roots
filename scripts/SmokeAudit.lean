@@ -1,0 +1,8 @@
+import LongCycleBounds.DescentFiniteData.N006
+import LongCycleBounds.DescentLowerCutoffPilot
+import LongCycleBounds.DescentBoundaryExceptions
+
+#print axioms LongCycleBounds.DescentNecklace.N006.original_roots
+#print axioms LongCycleBounds.DescentNecklace.Size6.lower_cutoff_mesh
+#print axioms LongCycleBounds.DescentBoundary.four_exception
+#print axioms LongCycleBounds.DescentBoundary.five_exception

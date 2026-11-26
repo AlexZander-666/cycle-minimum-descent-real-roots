@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Please cite the mathematical paper and its reproducible verification."
+type: software
+title: "Real zeros of descent polynomials for permutations with a minimum cycle length"
+version: "1.0.0"
+date-released: "2026-11-26"
+authors:
+  - given-names: "Bowen"
+    family-names: "Zuo"
+    affiliation: "East China University of Science and Technology"
+repository-code: "https://github.com/AlexZander-666/cycle-minimum-descent-real-roots"
+keywords:
+  - permutations
+  - ordinary descents
+  - real-rootedness
+  - Lean 4
+preferred-citation:
+  type: unpublished
+  title: "Real zeros of descent polynomials for permutations with a minimum cycle length"
+  authors:
+    - given-names: "Bowen"
+      family-names: "Zuo"
+      affiliation: "East China University of Science and Technology"
+  year: 2026
+  version: "1.0.0"
+  url: "https://github.com/AlexZander-666/cycle-minimum-descent-real-roots/releases/tag/v1.0.0"

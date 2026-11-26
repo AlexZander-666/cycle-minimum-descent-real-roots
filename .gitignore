@@ -1,0 +1,9 @@
+.lake/
+__pycache__/
+*.olean
+*.ilean
+*.trace
+*.pyc
+*.aux
+*.out
+*.toc

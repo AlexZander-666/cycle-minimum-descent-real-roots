@@ -1,0 +1,48 @@
+name: Full Lean source replay
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: Linux AMD64 runner label (24 GiB RAM for 2 jobs, 35 GiB free disk)
+        required: true
+        type: string
+      jobs:
+        description: Maximum concurrent compiler or kernel processes (1–6, allow 10 GiB per job)
+        required: true
+        default: '2'
+        type: string
+permissions:
+  contents: read
+
+jobs:
+  lean:
+    runs-on: ${{ inputs.runner }}
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@fe408643ea7367d8c0404a8be3975bb145f5fb64
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-github-cache: 'false'
+          use-mathlib-cache: 'true'
+      - name: Rebuild and replay the complete locked source closure
+        env:
+          LOCAL_JOBS: ${{ inputs.jobs }}
+        run: |
+          set -o pipefail
+          case "$LOCAL_JOBS" in
+            1|2|3|4|5|6) ;;
+            *) echo "jobs must be between 1 and 6" >&2; exit 2 ;;
+          esac
+          export COLD_WORK
+          COLD_WORK="$(mktemp -d "$RUNNER_TEMP/ordinary-cold.XXXXXXXX")"
+          python3 -Bu scripts/verify.py
+          ulimit -Sn 65536
+          python3 -Bu formal/verify_bounded.py formal AllCutoffsManuscriptAudit "$COLD_WORK/replay" \
+            --packages formal/.lake/packages --jobs "$LOCAL_JOBS" | tee "$COLD_WORK/full-audit.log"

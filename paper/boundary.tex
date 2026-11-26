@@ -1,0 +1,62 @@
+\section{Including the Eulerian and derangement rows}
+
+\begin{theorem}\label{allcuts}
+For every $n\ge1$ and every $w_1,\ldots,w_n\ge0$ with $\sum w_k>0$,
+the zeros of $P(t)=\sum_{k=1}^n w_kD_{n,k}(t)$ are real and nonpositive.
+Every zero is simple except in the following two cases. If $n=4$ and only $w_2$ is positive, $-2$ is a double zero. If $n=5$ and $w_1=w_2=0$, $-1$ is a double zero.
+\end{theorem}
+
+For $k=1$ the alphabet polynomial in \eqref{letter} is $q^n$ in both orientations.
+For $k=2$ remove the fixed-point factor from the unrestricted product:
+\[
+ f_n(q)=[z^n]\frac{(1-z)^q}{1-qz}=q^nG_n(1/q),\qquad
+ G_n(v)=\sum_{j=0}^n\frac{(-1)^j}{j!}\prod_{\ell=0}^{j-1}(1-\ell v).
+\]
+The ambient reversal $t^{n-1}D_{n,2}(1/t)$ has alphabet input $f_n^*(q)=(-1)^nf_n(-q)=q^nG_n(-1/q)$.
+Since $\deg G_n\le n-1$, neither orientation introduces a constant power of $q$.
+At $q=1$ the Eulerian inputs are both one; the derangement inputs are
+\[
+ f_n(1)=0,\qquad f_n^*(1)=\mathbf1_{2\mid n},
+\]
+since $f_n(-1)=[z^n](1-z^2)^{-1}$ for $n\ge1$.
+The coefficient of $q^n$ in either orientation is $p_n=G_n(0)$.
+
+For a series $H(v)$ and $r\ge0$ write $\|H\|_r=\sum_{a\ge0}|[v^a]H|r^a$.
+For $V=2/3$ the binomial series $G(v)=(1-v)^{1/v}$, with $G(0)=e^{-1}$, gives
+\[
+ \|G-G_n\|_V\le(4/5)^n\sum_{j\ge0}
+ \frac{(5/4)^j}{j!}\prod_{\ell=0}^{j-1}(1+\ell V)
+ = (4/5)^n6^{3/2}<10^{-10}=:\epsilon \quad(n\ge128).
+\]
+The omitted sum starts at $j=n+1$; the majorant is the binomial series $(1-5V/4)^{-1/V}$. The estimate controls the norm at every smaller radius and evaluation at every $|v|\le V$.
+Put $S(v)=\sum_{a\ge1}v^a/(a+1)\le v/(2(1-v))$ for $0\le v\le V$.
+Since $G(v)=e^{-1}\exp(-S(v))$, the relative positive-degree coefficient mass of $G_n$ at radius $v$ is at most $\bigl(e^{-1}(e^{S(v)}-1)+\epsilon\bigr)/p_n$.
+Alternating exponential sums give $0.3678<p_n<0.3680$ and $0.3678<e^{-1}<0.3680$.
+For $0\le b\le1$ the Taylor series gives
+$e^b\le1+b+b^2/(2(1-b/3))$. At $v=3/8,1/2,2/3$ the mass bounds are respectively below $3/7,2,3$. They give the required central-node bounds in both orientations.
+
+For the end nodes, $\log G(v)=-\int_0^1(1-vu)^{-1}\,du$ is decreasing.
+Let $g=f_n$ or $f_n^*$. For $q\ge4$, $G_n(\pm1/q)$ lies between $(3/4)^4-\epsilon$ and $(5/4)^{-4}+\epsilon$. Dividing by $p_n$ puts $g(q)/(p_nq^n)$ strictly between $6/7$ and $8/7$. At $q=3$ the endpoint values $(2/3)^3$ and $(4/3)^{-3}$ similarly give $2/3$ and $4/3$. At $q=2$ the lower bound used at node $i=2$ is
+\[
+ \frac{g(2)}{2^n}=G_n(\pm1/2)\ge\frac14-\epsilon>\frac1{2n}.
+\]
+In units of $p_n2^n$ the corresponding ratio is $G_n(\pm1/2)/p_n$.
+For both orientations $0\le g(q)\le q^n$: the nonnegative binomial contributions from derangements form a subfamily of the full Eulerian sum, also after ambient reversal. Thus $g(q)/(p_nq^n)<3$ for every integer $q\ge1$. The Eulerian row has $p_n=1$ and this ratio equals one. Equation~\eqref{tails} now applies for all $i\ge4$, including the $q=1$ term. At $i=3$ the bound $6/99$ applies, and at $i=2$ the preceding lower bound, in units of $2^n$, and $8n\exp(1/2-n/12)<1$ suffice. Reflection gives the same signs on the other half of the mesh.
+
+For $3\le n\le127$, except at $4,5$, the two added rows pass 15,740 exact sign tests on the original rational dyadic nodes. For $1\le q\le n$ the integer derangement counts simplify to $f_n(q)=q^{n-q}(q-1)^q$. A second verifier uses the triangular equations $f_n(q)=\sum_{d=0}^{q-1}[t^d]D_{n,2}(t)\binom{q+n-1-d}{n}$, whose last multiplier is one. For $k=1$ the corresponding input is $q^n$.
+
+For $n\ge3$ the two endpoint identities are
+\[
+ P(0)=w_1,\qquad [t^{n-1}]P=w_1+\mathbf1_{2\mid n}\,w_2.
+\]
+Only the identity has no descents; the decreasing permutation has a fixed point for odd $n$ and only transpositions for even $n$.
+The $n-2$ strict mesh signs, running from $-$ nearest zero to $(-1)^{n-2}$ farthest left, give $n-3$ distinct negative roots between nodes. If $w_1>0$, there is a further root at each outer side and the degree is $n-1$. If $w_1=0$, zero is a simple root: $(2,3,\ldots,n,1)$ in one-line notation is an $n$-cycle with one descent. When $n$ is even and $w_2>0$, the degree is $n-1$ and there is a further root to the left. Otherwise the degree is at most $n-2$. In each case the distinct roots exhaust the degree.
+
+For $n=4,5$ the distinct rows, in order of cutoff $1,2,\ge3$, are
+\[
+\begin{array}{c|lll}
+4&1+11t+11t^2+t^3&t(t+2)^2&3t(1+t)\\
+5&1+26t+66t^2+26t^3+t^4&8t+24t^2+12t^3&6t(1+t)^2 .
+\end{array}
+\]
+At $n=4$ all rows are negative at $-1/2$; at $-2$ they are positive except for the derangement row, which vanishes. The preceding degree count applies whenever a weight outside $k=2$ is positive. At $n=5$ all rows are negative at $-1/4$ and $-4$; at $-1$ their values are $16,4,0$ in the displayed groups. If $w_1+w_2>0$ the same count again gives only simple roots. The displayed factorizations give both remaining double roots. For $n=2$ the mixture is $w_1+(w_1+w_2)t$; for $n=1$ it is a positive constant. This proves Theorem~\ref{allcuts}.

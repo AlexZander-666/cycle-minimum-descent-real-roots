@@ -1,0 +1,57 @@
+name: Verify manuscript and Lean
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  paper:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify committed files
+        run: python3 -Bu scripts/verify.py
+      - name: Verify the exact finite and boundary certificates
+        run: python3 -Bu paper/reproduce.py finite
+      - name: Install pdfLaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-fonts-recommended
+      - name: Compile both source copies
+        run: python3 -Bu scripts/verify_paper.py
+
+  lean-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Make room for the Mathlib cache
+        if: ${{ runner.environment == 'github-hosted' }}
+        run: |
+          df -h .
+          sudo rm -rf /usr/local/lib/android /usr/share/swift /usr/share/dotnet
+          df -h .
+      - uses: leanprover/lean-action@fe408643ea7367d8c0404a8be3975bb145f5fb64
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-github-cache: 'false'
+          use-mathlib-cache: 'true'
+      - name: Audit original small rows and multiplicity exceptions
+        run: |
+          python3 -Bu scripts/verify.py
+          ulimit -Sn 65536
+          python3 -Bu scripts/verify_smoke.py
