@@ -1,0 +1,8 @@
+{
+  "baseline_receipt_sha256": "bc4c73094dc553f5f04ad267c1b8c74597916f37ecaf0add7f019a34f8e549fb",
+  "extension_receipt_sha256": "36a9eaacb89add59bd1daf026f55d6550dd50de97c32b873e010a6d3dbacd70e",
+  "shared_modules_cold_built_and_replayed": 574,
+  "new_modules_cold_built_and_replayed": 1,
+  "audit_checked_in_extension": 13,
+  "archive_sha256": "69535d7fcb1a89791f4be4c50116d641217ab5008297f4fa22d67469839e3a04"
+}

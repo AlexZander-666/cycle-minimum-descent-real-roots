@@ -1,0 +1,34 @@
+[
+  {
+    "n": 6,
+    "original_permutations_enumerated": 720,
+    "eulerian_permutations_enumerated": 120,
+    "whole_cutoff_rows": 4,
+    "strict_row_endpoint_tests": 32,
+    "distinct_polynomials": 2
+  },
+  {
+    "n": 7,
+    "original_permutations_enumerated": 5040,
+    "eulerian_permutations_enumerated": 720,
+    "whole_cutoff_rows": 5,
+    "strict_row_endpoint_tests": 50,
+    "distinct_polynomials": 2
+  },
+  {
+    "n": 8,
+    "original_permutations_enumerated": 40320,
+    "eulerian_permutations_enumerated": 5040,
+    "whole_cutoff_rows": 6,
+    "strict_row_endpoint_tests": 72,
+    "distinct_polynomials": 3
+  },
+  {
+    "n": 9,
+    "original_permutations_enumerated": 362880,
+    "eulerian_permutations_enumerated": 40320,
+    "whole_cutoff_rows": 7,
+    "strict_row_endpoint_tests": 98,
+    "distinct_polynomials": 3
+  }
+]

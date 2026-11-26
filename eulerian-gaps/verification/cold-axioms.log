@@ -1,0 +1,28 @@
+LongCycleBounds.OrdinaryEulerianGap.original_all {n k : ℕ} (hn : 6 ≤ n) (hk : 3 ≤ k) (kn : k ≤ n) :
+  LongCycleFinite.StrictNegativeInterlacing (LongCycleBounds.DescentNecklace.EulerianBrackets.originalQuotient n k)
+    (LongCycles.eulerian (n - 1)) (n - 3)
+LongCycleBounds.DescentNecklace.EulerianBrackets.originalQuotient (n k : ℕ) : Polynomial ℝ
+LongCycleBounds.DescentTwoLetters.row (n k : ℕ) : Polynomial ℤ
+'LongCycleBounds.OrdinaryEulerianGap.original_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LongCycleBounds.OrdinaryEulerianGap.original_large' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LongCycleBounds.OrdinaryEulerianGap.original_large_of_alignment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LongCycleBounds.OrdinaryEulerianExterior.aligned_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LongCycleBounds.DescentNecklace.EulerianBrackets.originalQuotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LongCycleBounds.DescentTwoLetters.row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LongCycleBounds.DescentNecklace.EulerianBrackets.original_through127' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LongCycleBounds.DescentNecklace.EulerianBrackets.original_of_representatives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LongCycleBounds.DescentNecklace.EulerianBrackets.checked_interlacing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LongCycleBounds.DescentNecklace.row_eq_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LongCycleBounds.DescentNecklace.ofCoeffs_descentRowDP' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LongCycleBounds.DescentNecklace.row_eq_of_checkedCoeffs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LongCycleBounds.OrdinaryEulerianGap.original_mixture_all' depends on axioms: [propext, Classical.choice, Quot.sound]

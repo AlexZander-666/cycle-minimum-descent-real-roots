@@ -1,0 +1,1 @@
+Copyright 2026 Bowen Zuo. The author reserves copyright in this manuscript, including the PDF and typesetting source. Distribution of this edition in the accompanying repository and research archive is authorized. Original verification software is licensed separately under Apache-2.0.

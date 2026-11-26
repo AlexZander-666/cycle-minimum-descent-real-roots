@@ -1,0 +1,5 @@
+'LongCycleBounds.OrdinaryEulerianGap.original_mixture_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+replaying LongCycleBounds.OrdinaryEulerianMixture
+e3dc114671aa848680d9474ff8767195b0f8fc9817ee01a4f4a730781635f0c3  LongCycleBounds/OrdinaryEulerianMixture.lean
+acdef979e4f1f73162406bd8f209745576a4694cb947d1c359d1cba0fdcd636a  library/LongCycleBounds/OrdinaryEulerianMixture.olean
+isolated_strict_and_kernel_exit=0

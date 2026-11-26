@@ -1,0 +1,20 @@
+import LongCycleBounds.OrdinaryEulerianMixture
+
+#check LongCycleBounds.OrdinaryEulerianGap.original_all
+#check LongCycleBounds.DescentNecklace.EulerianBrackets.originalQuotient
+#check LongCycleBounds.DescentTwoLetters.row
+
+#print axioms LongCycleBounds.OrdinaryEulerianGap.original_all
+#print axioms LongCycleBounds.OrdinaryEulerianGap.original_large
+#print axioms LongCycleBounds.OrdinaryEulerianGap.original_large_of_alignment
+#print axioms LongCycleBounds.OrdinaryEulerianExterior.aligned_moments
+#print axioms LongCycleBounds.DescentNecklace.EulerianBrackets.originalQuotient
+#print axioms LongCycleBounds.DescentTwoLetters.row
+#print axioms LongCycleBounds.DescentNecklace.EulerianBrackets.original_through127
+#print axioms LongCycleBounds.DescentNecklace.EulerianBrackets.original_of_representatives
+#print axioms LongCycleBounds.DescentNecklace.EulerianBrackets.checked_interlacing
+#print axioms LongCycleBounds.DescentNecklace.row_eq_representative
+#print axioms LongCycleBounds.DescentNecklace.ofCoeffs_descentRowDP
+#print axioms LongCycleBounds.DescentNecklace.row_eq_of_checkedCoeffs
+
+#print axioms LongCycleBounds.OrdinaryEulerianGap.original_mixture_all

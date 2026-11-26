@@ -1,0 +1,21 @@
+name: Verify Eulerian gaps
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  certificates:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: eulerian-gaps
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: cd formal && sha256sum --quiet --check SHA256SUMS
+      - run: cd paper && sha256sum --quiet --check SHA256SUMS
+      - run: python3 -B verification/direct_check.py
+      - run: python3 -B paper/anc/gaps/verify_brackets.py
+      - run: python3 -B paper/anc/gaps/central-budgets.py
+      - run: python3 -B paper/anc/gaps/short_signed.py
+      - run: python3 -B paper/anc/gaps/two_radii.py

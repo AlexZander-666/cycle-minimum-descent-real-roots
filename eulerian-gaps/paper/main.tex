@@ -1,0 +1,159 @@
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\DeclareMathOperator{\des}{des}
+\title{Real zeros of descent polynomials for permutations with a minimum cycle length}
+\author{Bowen Zuo\\ {\small East China University of Science and Technology}}
+\hypersetup{pdfauthor={Bowen Zuo},pdftitle={Real zeros of descent polynomials for permutations with a minimum cycle length}}
+\date{27 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $D_{n,k}$ enumerate permutations of $n$ letters with all cycles of length at least $k$, by ordinary descents. We give a proof of the real-rootedness conjecture for $3\le k\le n$. For every $n\ge6$, each open gap between successive zeros of the ordinary Eulerian polynomial $A_{n-1}$ contains exactly one simple zero of every $D_{n,k}/t$. The same gaps work for every nonzero nonnegative combination of these quotients. At large sizes we obtain the intervals by bounding the lower-degree terms of the Gessel--Reutenauer alphabet polynomial, then using two different estimates for alternating power sums. The finite range is covered by reproducible integer sign certificates. We also prove real-rootedness of every nonzero nonnegative combination at fixed size, including the ordinary Eulerian and derangement rows, and classify its multiple roots.
+\end{abstract}
+
+\section{The statement}
+Write $\mathcal A_{n,k}$ for the permutations of $[n]$ whose shortest cycle has length at least $k$. Put
+\[
+ D_{n,k}(t)=\sum_{\sigma\in\mathcal A_{n,k}}t^{\des(\sigma)},\qquad
+ \des(\sigma)=\#\{i<n:\sigma(i)>\sigma(i+1)\}.
+\]
+Alexandersson asks whether these polynomials have only real roots \cite{open}. The case $k=1$ is Eulerian and Alexandersson proved real-rootedness for the ordinary descent derangement row $k=2$ \cite[Theorem~2.1]{der}. Theorem~\ref{allcuts} concerns the compatibility of all the cutoffs at a fixed size. Unless stated otherwise, $3\le k\le n$. All such rows are nonempty because they include the $n$-cycles.
+
+ProgramComputer~\cite{pc} proved the single-cycle case at every size,
+including the double root at $n=5$. For $n\ge25$ and $52\log n\le k\le n$ (natural logarithm)
+they also proved simple nonpositive zeros for arbitrary nonzero
+nonnegative mixtures of the cycle types with minimum part at least $k$.
+Our mixtures are of the whole cutoff rows, and the result covers every
+$1\le k\le n$.
+
+\begin{theorem}\label{main}
+For each $n\ge3$, $D_{n,k}$ has degree $n-2$ and a simple root at zero. For $n\ne5$ there are $n-3$ disjoint open intervals in $(-\infty,0)$, independent of $k$, each containing one simple root of every $D_{n,k}$. For $n=5$ all three rows equal $6t(1+t)^2$.
+\end{theorem}
+In particular any nonzero nonnegative linear combination at a fixed size has the same root counts and multiplicities. At $n=5$ the combination is a positive multiple of $6t(1+t)^2$. For $n\ne5$ the endpoint signs are strict and common to the whole family, and the zero at the origin supplies the remaining root. At $n=3$ the interval collection is empty. Enumeration by the descent set of a single cycle is developed in \cite{et}, and plethystic formulas for cycle-type refinements in \cite{gz}. The other long-cycle conjecture in \cite{open} concerns excedances and interlacing as $n$ changes.
+
+The first version of this paper established Theorems~\ref{main} and~\ref{allcuts} with common intervals constructed at each size \cite{v1}. Theorem~\ref{gapthm} below identifies canonical separators for $n\ge6$ and $k\ge3$. The Eulerian-gap question and an independent finite check through size 38 were communicated by Per Alexandersson's group after the first version. They also identified a stronger inverse-coefficient bound useful for this comparison. Below we give our proof of that bound in the range needed and use it to obtain signs at the actual Eulerian roots.
+
+\section{The alphabet polynomial}
+Let $M_j(q)=j^{-1}\sum_{d\mid j}\mu(d)q^{j/d}$. Define
+\begin{equation}\label{letter}
+ f_n(q)=[z^n]\prod_{j\ge k}(1-z^j)^{-M_j(q)},\qquad
+ \frac{D_{n,k}(t)}{(1-t)^{n+1}}=\sum_{q\ge1}f_n(q)t^{q-1}.
+\end{equation}
+The second identity is the finite-alphabet specialization of Gessel and Reutenauer \cite[Theorem~3.6]{gr}, with the first $q$ variables set to one and the rest to zero. To see its normalization, a permutation with $r$ descents admits $\binom{q+n-1-r}{n}$ weakly increasing $q$-letter labelings with strict rises at the descents. The cycle itineraries of these labeled permutations give multisets of primitive necklaces. There are $M_j(q)$ necklace types of length $j$, each available with arbitrary multiplicity. Summing the binomial coefficients in $q$ gives $t^r/(1-t)^{n+1}$.
+
+At $q=0$ every $M_j$ vanishes, so the product is one and $f_n(0)=0$ for $n>0$. Write $f_n(q)=\sum_{h=1}^n a_h q^h$ and $p_n=a_n$. Only the leading terms with cycle multiplicity one in the logarithm of the product contribute at degree $n$. Thus
+\[
+ p_m=[z^m]\exp\Big(\sum_{j\ge k}z^j/j\Big),\qquad
+ m p_m=\sum_{s=0}^{m-k}p_s\quad(m\ge k).
+\]
+Here $p_m$ is the fraction of admissible permutations, $p_0=1$ and $p_s=0$ for $0<s<k$. For $m\ge k$ we have $1/(2k)\le p_m\le1/k$. Both bounds hold for $k\le m<2k$, where $p_m=1/m$. Induction for $m\ge2k$ gives a numerator between $1+(m-2k+1)/(2k)$ and $1+(m-2k+1)/k$.
+
+The reversed row $t^{n-1}D_{n,k}(1/t)$ has alphabet polynomial $f_n^*(q)=(-1)^nf_n(-q)$. This follows from
+$\binom{-q+n-1-r}{n}=(-1)^n\binom{q+r}{n}$. Both alphabet polynomials vanish at $q=1$, since the increasing and the decreasing permutations are excluded. In particular $D_{n,k}(0)=0$ and $\deg D_{n,k}\le n-2$.
+
+\section{Uniform control of the lower degrees}
+Put $E(v)=p_n^{-1}\sum_{h<n}|a_h|v^{n-h}$ and $V=2/3$. Substituting $zv$ for $z$ and $1/v$ for $q$ in the logarithm of \eqref{letter} splits off the terms $\sum_{j\ge k}z^j/j$. The remaining terms are
+\[
+ B=\sum_{j\ge k}\sum_{b\ge1}
+ \sum_{\substack{d\mid j\\(b,d)\ne(1,1)}}
+ \frac{\mu(d)}{jb}z^{jb}v^{jb-j/d}.
+\]
+At $0<v\le V$ the total absolute mass at $z=1$ is at most
+\[
+ J(v)=v^2/3+v^2/4+v^4/5+(v^3+v^4+v^5)/6+v^6/7
+       +\frac{v^4}{1-v}+\frac{v^3}{2(1-v)(1-v^3)}.
+\]
+For $b=1$ the first five terms account for $j=3,\ldots,7$. When $j\ge8$ the number of divisors other than one is at most $j/2$ and the exponent is at least $\lceil j/2\rceil$. For $b\ge2$ bound $1/b$ by $1/2$, use at most $j$ divisors and sum $v^{j(b-1)}$ over $j\ge3$.
+
+Let $C(z,v)$ replace the coefficients of the displayed bad logarithm $B$ by their absolute values and put $H=e^C-1$. The convolution with the good part gives $E(v)\le p_n^{-1}\sum_{r=1}^n p_{n-r}[z^r]H(z,v)$. A term with remaining length $s>0$ is multiplied by $p_s/p_n\le2$. Terms with $s=0$ come entirely from the error exponential. Each of their factors loses at least half its $z$-degree, since $d\ge2$ or $b\ge2$. Their loss is at least $n/2$, and $1/p_n\le2n$. Consequently
+\[
+ E(v)\le 2(e^{J(v)}-1)+2n(v/V)^{n/2}e^{J(V)},\qquad E(V)\le2n e^{J(V)}.
+\]
+For the second bound use $p_s\le1$ directly for every remaining length. For $n\ge128$, $J(V)<2$, $e^2<8$, and $16n(3/4)^{n/2}<1/1000$. At the four smaller rational arguments, use $e^J-1\le J/(1-J)$ to obtain
+\begin{equation}\label{est}
+ E(1/4)<1/7,\quad E(1/3)<1/3,\quad E(3/8)<3/7,\quad E(1/2)<2 .
+\end{equation}
+The tightest margin is \[ \frac37-\frac{2J(3/8)}{1-J(3/8)}-\frac1{1000} = \frac{18913056563}{25670690437000}>0. \] The exponential bound in $n$ decreases from its value at 128 by the ratio test.
+
+\section{A common sign at each node}
+Assume $n\ge128$ throughout this section. Set $N=n+1$, $\theta=\pi i/N$, $x=\pi\cot\theta$ and $t_i=-e^{-x}$ for $2\le i\le n-1$. It suffices to show that the sign of $D_{n,k}(t_i)$ is $(-1)^{i-1}$. We first take $i\le N/2$. The evaluation has the sign of
+$\sum_{q\ge1}(-1)^{q-1}f_n(q)e^{-xq}$, with the Abel limit at $x=0$. The same estimates below apply with $f_n^*$ in place of $f_n$.
+
+\paragraph{Central nodes.}
+When $i\ge\sqrt N/2$, write $s=\sin\theta$ and $\rho=\pi/s$. For $h\ge1$ the alternating $h$th power sum equals
+\[
+ -h!\sum_{\ell\text{ odd},\,\ell\in\mathbb Z}(x+\mathrm i\pi\ell)^{-h-1}.
+\]
+Here $\mathrm i^2=-1$. The logarithmic derivative of the product for $\cosh(x/2)$ gives
+\[
+ (e^x+1)^{-1}=\tfrac12-\sum_{\ell\ge1\ {\rm odd}}2x/(x^2+\pi^2\ell^2).
+\]
+Differentiate $h$ times and multiply by $(-1)^h$. The paired expansions and their derivatives converge uniformly on compact real intervals, which includes the Abel endpoint.
+For $h=n$ the nearest pair contributes $(-1)^{i-1}A$, where $A=2n!\rho^{-N}$. We have $Ns^2\ge2$, and the remaining odd pairs contribute in absolute value at most $A/4$. Indeed Bernoulli's inequality bounds the normalized sum by $\sum_{\ell\ge3\ {\rm odd}}(\ell^2-1)^{-1}=1/4$.
+
+For $n\ge128$, $\sin(\pi/(2\sqrt N))\ge(199/200)\pi/(2\sqrt N)$ by $\sin z\ge z-z^3/6$. Thus $\rho\le(41/20)\sqrt n$. If $n/2\le h<n$, the sum of relative moduli of the positive odd poles at exponent $h+1$ is at most $3/2$, since $(h+1)s^2/2\ge1/2$. Also $h!/n!\le(2/n)^{n-h}$ and $2\rho/n\le3/8$. By \eqref{est} these terms contribute at most $(9/14)p_nA$. For $h<n/2$, the geometric mean of the last $n-h$ factorial factors is at least $n/e$. The sum of relative pole moduli is at most $\sum_{\ell\ge1\ {\rm odd}}\rho^2/(\pi\ell)^2=\rho^2/8\le n$. Since $e\rho/n\le1/2$, the contribution divided by $p_n A$ is at most
+$n(3/4)^{n/2}E(V)\le16n^2(3/4)^{n/2}<1/100$. The last quantity decreases for $n\ge128$. The total relative error is below $1/4+9/14+1/100<1$.
+
+\paragraph{End nodes.}
+Let $i<\sqrt N/2$ and $u_q=q^n e^{-xq}$. Its successive ratios decrease in $q$. From
+$N/i-\pi^2 i/(2N)\le x\le N/i$ (use $\cos\theta\ge1-\theta^2/2$, $\sin\theta\le\theta$ and $\tan\theta\ge\theta$), one obtains
+\[
+ \log(u_{i+1}/u_i)\le 1/(4i)-n/(2i(i+1)),\qquad
+ \log(u_{i-1}/u_i)\le 1/i-n/(2i^2).
+\]
+Here $\pi^2 i/(2N)<5/(4i)$, $\log(1+1/i)\le1/i-1/(2i(i+1))$ and $\log(1-1/i)\le-1/i-1/(2i^2)$. Both ratios are less than $1/4$. For $i\ge4$ substitute $n\ge4i^2-1$ in the two bounds; their maxima are at most $-121/80$ and $1/4-(4-1/16)/2$. For $i=2,3$ use $n\ge128$.
+
+Write $g=f_n$ or $f_n^*$. For $q\ge4$, \eqref{est} places $g(q)/(p_n q^n)$ between $6/7$ and $8/7$. At $q=3$ the bounds are $2/3$ and $4/3$, and at $q=2$ the upper bound is 3. For $q=1$ the bound $g(1)/(p_n1^n)\le3$ also holds here, since $g(1)=0$.
+For all $i\ge4$, the left ratio $\eta=u_{i-1}/u_i$ satisfies
+\[
+ \log\eta\le-2+\frac1i+\frac1{2i^2}\le-\frac{55}{32}<-\frac53,\qquad
+ e^{5/3}>\sum_{a=0}^4\frac{(5/3)^a}{a!}=\frac{10009}{1944}>5.
+\]
+Thus the left and right outward ratios are bounded by $1/5$ and $1/4$.
+In units of $p_nu_i$, first charge all off-center terms at amplitude $8/7$.
+For $q=3$ the excess is at most $4/21$; for $q=2,1$ each excess is at most $13/7$.
+The largest resulting bound occurs at $i=4$ and is
+\begin{equation}\label{tails}
+ \frac87\left(\frac14+\frac13\right)
+ +\frac4{21}\frac15+\frac{13}{7}\left(\frac1{25}+\frac1{125}\right)
+ =\frac{2084}{2625}<\frac67 .
+\end{equation}
+The difference $166/2625$ is a strict margin against the center term.
+For $i=3$ both neighboring ratios are at most $\exp(1/3-n/24)<1/100$,
+so both tails including $q=1$ cost at most $6/99<2/3$.
+
+At $i=2$ use the unrestricted bound $0\le g(q)\le q^n$, obtained by summing labelings over all permutations, also after reversal. Single cycles alone give $g(2)\ge2^n/(2n)$: their contribution is $M_n(2)$ or $(-1)^nM_n(-2)$, and the sum of the absolute lower powers in the divisor formula is at most $n2^{n/2}<2^{n-1}$. Both outward ratios are at most $\beta=\exp(1/2-n/12)$. Here $8n\beta<1$ at 128 and decreases thereafter, so $2\beta/(1-\beta)<1/(2n)$. This proves the desired sign throughout the end region.
+
+Finally $t_{N-i}=1/t_i$. The reversed polynomial contributes the sign factor $(-1)^{n-1}$ when passing to the other half of the mesh. Hence the $n-2$ nodes strictly alternate and yield $n-3$ distinct negative roots by continuity. Together with zero these exhaust the degree bound.
+
+\section{The finite certificate}
+For $3\le n\le127$ the companion data give rational dyadic nodes at each size. For each $k$ the integer coefficients are reconstructed by
+\[
+ [t^r]D_{n,k}=\sum_{j=0}^r(-1)^j\binom{n+1}{j} f_n(r-j+1).
+\]
+The two independent reconstructions either insert long-necklace factors or remove the short factors from $(1-qz)^{-1}$. The latter equality for the unrestricted product follows from $\sum_{j\mid b}jM_j(q)=q^b$. For $k>n/2$ only $n$-cycles occur and one row represents all those cutoffs. From a node $a/2^s$ the verifier evaluates the numerator by integer Horner after clearing the positive denominator. Checking order and strict alternation costs 327,451 evaluations on the common meshes for the relevant distinct rows outside $n=5$. The exceptional row factors exactly. The degree argument from the preceding section applies to the dyadic nodes without any rounding assumption. This completes the finite part of Theorem~\ref{main}.
+
+\input{boundary}
+
+\input{eulerian-gaps}
+\paragraph{Reproducibility.}
+The ancillary directory contains the finite sign data, two independent Python implementations for the added rows, and commands to replay the certificates.
+The Lean proofs start from the permutation sum defining $D_{n,k}$. The module \texttt{DescentAllSizes} verifies the common isolating intervals of Theorem~\ref{main} for every $n\ge3$ other than $5$, and real splitting also at $n=5$. The module \texttt{DescentAllCutoffSizes} verifies Theorem~\ref{allcuts} for every $n\ge1$, including the two exceptional supports. The source package for the first version includes the dependency locks and replay instructions. For the Eulerian gaps, \texttt{original\_all} combines the finite and infinite ranges. The kernel also checks \texttt{original\_mixture\_all}, the statement for real weights in Theorem~\ref{gapthm}. The supplementary files for this revision contain the compact Eulerian brackets and exact arithmetic checks. AI tools assisted with derivation, verification, and drafting. The author takes responsibility for the manuscript.
+
+\begin{thebibliography}{9}
+\bibitem{v1} B.~Zuo, Real zeros of descent polynomials for permutations with a minimum cycle length, first version (2026). \href{https://doi.org/10.5281/zenodo.24555977}{doi:10.5281/zenodo.24555977}.
+\bibitem{open} P.~Alexandersson, Real-rooted polynomials: open problems,
+\emph{The symmetric functions catalog}, accessed 26 November 2026,
+\url{https://www.symmetricfunctions.com/realRootedOpenProblems.htm#permutations-with-long-cycles}.
+\bibitem{der} P.~Alexandersson, Real-rooted Eulerian polynomials from permutations, words, and paths,
+arXiv:2609.07325v2 (2026).
+\bibitem{gr} I.~M.~Gessel and C.~Reutenauer, Counting permutations with given cycle structure and descent set, \emph{J. Combin. Theory Ser. A} \textbf{64} (1993), 189--215.
+\bibitem{et} S.~Elizalde and J.~Troyka, Exact and asymptotic enumeration of cyclic permutations according to descent set, \href{https://doi.org/10.1016/j.jcta.2019.02.012}{DOI 10.1016/j.jcta.2019.02.012}.
+\bibitem{gz} I.~M.~Gessel and Y.~Zhuang, Plethystic formulas for permutation enumeration, \href{https://arxiv.org/abs/2001.00654}{arXiv:2001.00654}.
+\bibitem{pc} ProgramComputer, Real zeros of descent polynomials for permutations with long cycles, research manuscript, 25 November 2026. \href{https://github.com/ProgramComputer/open-math-research/blob/4da48b72ed8f92f96c2faf60e2d63d253b3b507a/topics/long-cycle-descents/paper.tex}{Archived source}.
+\end{thebibliography}
+\end{document}
