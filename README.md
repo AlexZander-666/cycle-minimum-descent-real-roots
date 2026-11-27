@@ -35,4 +35,8 @@ ProgramComputer previously proved every single-cycle row, including the double r
 
 Alexandersson previously proved the case k = 2. Gessel and Reutenauer supplied the cycle-type/descent-set identity used in this proof. The companion conjecture about strict excedances and roots across consecutive sizes concerns a different statistic and order of quantification. [Prior work](PRIOR-ART.md)
 
-Bowen Zuo (East China University of Science and Technology) is the sole author and takes responsibility for this paper. The six-page first edition was released on 26 November 2026. The nine-page revision adds Theorem 3. ChatGPT assisted with mathematical development, exact computation, formalization and drafting. All proof claims above have the source and verification scope given in this release. Original software is distributed under Apache-2.0; the paper is separately copyrighted. [Software license](LICENSE) · [Rights and attribution](LICENSE-SCOPE.md)
+Bowen Zuo (East China University of Science and Technology) is the sole author of the tagged releases and takes responsibility for them. The six-page first edition was released on 26 November 2026. The nine-page revision adds Theorem 3. ChatGPT assisted with mathematical development, exact computation, formalization and drafting. All proof claims above have the source and verification scope given in this release. Original software is distributed under Apache-2.0; the paper is separately copyrighted. [Software license](LICENSE) · [Rights and attribution](LICENSE-SCOPE.md)
+
+## Authorship
+
+The tagged releases v1.0.0 and v1.1.0 list Bowen Zuo as sole author. They remain unchanged and may be cited as they are. Release v1.0.0 is the version cited as [Zuo26] in Alexandersson's Symmetric Functions Catalog. The manuscript prepared for journal submission is joint work of Bowen Zuo and Xiaojuan Luo (corresponding author), both of East China University of Science and Technology.
